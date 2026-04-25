@@ -72,9 +72,14 @@ async def eod_analysis(request: EODAnalysisRequest):
             errors.append({"symbol": symbol, "error": str(e)})
 
     if not stocks:
+        failed = ", ".join(e["symbol"] for e in errors)
         raise HTTPException(
-            status_code=400,
-            detail=f"Could not fetch data for any symbol. Errors: {errors}",
+            status_code=422,
+            detail=(
+                f"No valid data found for: {failed}. "
+                "Use exact NSE symbols (e.g. RELIANCE, TCS, INFY, HDFCBANK). "
+                "Tip: check https://finance.yahoo.com — search '<SYMBOL>.NS'."
+            ),
         )
 
     if errors:

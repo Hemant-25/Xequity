@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark trading terminal palette — always dark */
+  --background: #0d0f14;
+  --surface: #161b25;
+  --surface-2: #1e2535;
+  --border: #2a3347;
+  --foreground: #e2e8f0;
+  --muted: #64748b;
+
+  --bull: #22c55e;
+  --bear: #ef4444;
+  --hold: #f59e0b;
+  --strong-buy: #16a34a;
+  --reduce: #f97316;
+
+  --accent: #3b82f6;
+  --accent-muted: #1d4ed8;
 }
 
 @theme inline {
@@ -12,12 +26,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 body {
   background: var(--background);
