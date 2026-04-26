@@ -1,4 +1,4 @@
-# Tradebot — Indian Stock Portfolio Analyzer
+# Xequity — Indian Equity Portfolio Maximiser
 
 An AI-powered portfolio analysis tool that acts like a Senior Institutional Equity Strategist with 20+ years of experience in the Indian Capital Markets (NSE/BSE).
 
